@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: vynsi
+
+  servlet:
+    multipart:
+      max-file-size: 250MB
+      max-request-size: 250MB
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Vynsi
+    username: postgres
+    password: "!newThing2025"
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+    open-in-view: false
+
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+
+  endpoint:
+    health:
+      show-details: always
+
+vynsi:
+  storage:
+    local:
+      root: ./uploads
